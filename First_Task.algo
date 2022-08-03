@@ -1,0 +1,28 @@
+FUNCTION dot_product(v1:INTEGER,v2:INTEGER) : return_type
+VAR
+BEGIN
+    FOR i FROM 0 TO 3 STEP 1  DO
+        p:= v1[0]*v2[0]+v1[1]*v2[1]+v1[2]*v2[2];
+    END_FOR
+    RETURN p ;
+END
+ALGORITHM DotProduct
+VAR
+    ps:INTEGER;
+    v3 : ARRAY_OF INTEGER[4][3];
+BEGIN
+    FOR i FROM 0 TO 3 STEP 1  DO
+        FOR j FROM 0 TO 2 STEP 1  DO
+            read(v3[i][j]);
+        END_FOR
+    END_FOR
+    FOR i FROM 0 TO 3 STEP 1  DO
+        FOR j FROM i+1 TO 3 STEP 1  DO
+            ps:= dot_product(v3[i],v3[j])
+            IF (ps=0) THEN
+            write("Ces vecteurs sont orthogonaux", v3[i],v3[j]);
+            break;
+            END_IF
+        END_FOR
+    END_FOR
+END

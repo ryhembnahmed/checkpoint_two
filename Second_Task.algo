@@ -1,0 +1,23 @@
+PROCEDURE Swap(var x, var y)
+VAR
+    tmp: INTEGER;
+BEGIN
+    tmp:=x;
+    x:=y;
+    y:=tmp;
+END
+ALGORITHM Insertion_sort
+VAR
+    arr: ARRAY_OF integer[8];
+BEGIN
+    FOR i FROM 0 TO arr.length STEP 1  DO
+        read(arr[i]);
+    END_FOR
+    FOR i FROM 1 TO arr.length-1 STEP 1  DO
+        FOR j FROM i-1 TO 0 STEP -1  DO
+            IF (arr[j]<arr[i]) THEN
+                Swap(arr[j],arr[i]);
+            END_IF
+        END_FOR
+    END_FOR
+END
